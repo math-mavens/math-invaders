@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+if Category.all.count.zero?
+  puts "Creating the first 4 categories - Addition, Subtraction, Multiplication and Division..."
+  Category.create!(name: 'Addition')
+  Category.create!(name: 'Subtraction')
+  Category.create!(name: 'Multiplication')
+  Category.create!(name: 'Division')
+  puts "Created..."
+end
