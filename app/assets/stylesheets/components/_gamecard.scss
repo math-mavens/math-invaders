@@ -1,0 +1,64 @@
+.button-play {
+  background-color: #F06D4F;
+  color:white;
+  font-weight: 900;
+}
+
+.game-category {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background-color: red;
+  font-size: 14px;
+}
+
+
+.card-game{
+  border: none;
+  border-radius: 0.625rem;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #ffefd4;
+  border-radius: 0px 0px 4px 4px;
+
+}
+
+.card-game img {
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px 4px 0px 0px;
+}
+
+// .group-cards > .row > .col-lg-3{
+//   display: inline-block;
+// }
+
+// .group-cards > .row {
+//   overflow-x: auto;
+//   white-space: nowrap;
+// }
+.scrolling-wrapper{
+	overflow-x: auto;
+  padding-left: -12px;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F06D4F;
+  border-radius: 4px;
+}
