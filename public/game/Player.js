@@ -47,7 +47,6 @@ export default class Player {
   }
 
   keyDown = event => {
-    console.log(event);
     if (event.code === "ArrowRight") {
       this.rightPressed = true;
     }
@@ -60,7 +59,6 @@ export default class Player {
   };
 
   keyUp = event => {
-    console.log(event);
     if (event.code === "ArrowRight") {
       this.rightPressed = false;
     }

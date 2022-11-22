@@ -18,8 +18,10 @@ const player = new Player(canvas, 3, playerBulletController);
 
 let isGameOver = false;
 let didWin = false;
+let setIntervalID = null;
 
 function game() {
+  // console.log("in game loop...");
   checkGameOver();
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   displayGameOver();
@@ -29,6 +31,9 @@ function game() {
     player.draw(ctx);
     playerBulletController.draw(ctx);
     enemyBulletController.draw(ctx);
+  } else { // If game over stop the game loop
+    clearInterval(setIntervalID);
+    // console.log("Cleared Interval...");
   }
 }
 
@@ -59,4 +64,4 @@ function checkGameOver() {
   }
 }
 
-setInterval(game, 1000 / 60);
+setIntervalID = setInterval(game, 1000 / 45);

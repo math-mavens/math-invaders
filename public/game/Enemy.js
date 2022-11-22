@@ -1,13 +1,15 @@
 export default class Enemy {
-  constructor(x, y, imageNumber) {
+  constructor(x, y, strength, imageName, trigger) {
     this.x = x;
     this.y = y;
+    this.strength = strength;
+    this.trigger = trigger;
 
     this.width = 44;
     this.height = 32;
 
     this.image = new Image();
-    this.image.src = `./images/enemy${imageNumber}.png`;
+    this.image.src = `./images/enemy-${imageName}.png`;
   }
 
   draw(ctx) {
@@ -31,5 +33,13 @@ export default class Enemy {
     } else {
       return false;
     }
+  }
+
+  reduceStrength() {
+    this.strength--;
+  }
+
+  strengthOver() {
+    return this.strength <= 0;
   }
 }
