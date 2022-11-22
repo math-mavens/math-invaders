@@ -1,4 +1,11 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="vh-200" style="background-color: #ffefd4;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-light p-5">
+
+<h2 class="mb-3">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -24,15 +31,18 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class:"btn btn-primary text-white"%>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
 <div class="d-flex align-items-center">
   <div>Unhappy?</div>
   <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
 </div>
 
 <%= link_to "Back", :back %>
+ </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
