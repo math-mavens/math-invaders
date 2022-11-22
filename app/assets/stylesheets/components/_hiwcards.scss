@@ -1,0 +1,29 @@
+.card-hiw {
+  border: none;
+  border-radius: 0.625rem;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #F5F1EA;
+  border-radius: 0px 0px 4px 4px;
+
+}
+
+.card-hiw img {
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.number-hiwcard {
+color: #F06D4F;
+font-size: 40px;
+}
+
+.hiw-numb {
+  align-items: self-end;
+}
