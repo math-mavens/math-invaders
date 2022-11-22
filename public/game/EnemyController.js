@@ -1,15 +1,9 @@
+import Levels from "./Levels.js";
 import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
 
 export default class EnemyController {
-  enemyMap = [
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-    [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  ];
+  enemyMap = Levels['level1'];
 
   enemyRows = [];
 
@@ -18,10 +12,14 @@ export default class EnemyController {
   yVelocity = 0;
   defaultXVelocity = 1;
   defaultYVelocity = 1;
-  moveDownTimerDefault = 30;
+  moveDownTimerDefault = 15;
   moveDownTimer = this.moveDownTimerDefault;
   fireBulletTimerDefault = 100;
   fireBulletTimer = this.fireBulletTimerDefault;
+  hudHeight = 60;
+  score = 0;
+  defaultScorePerEnemy = 100;
+  triggerBonusPerEnemy = 100;
 
   constructor(canvas, enemyBulletController, playerBulletController) {
     this.canvas = canvas;
@@ -42,14 +40,38 @@ export default class EnemyController {
     this.fireBullet();
   }
 
+  updateScore(triggered, enemyCount) {
+    if (triggered) {
+      this.score += (this.defaultScorePerEnemy + this.triggerBonusPerEnemy) * enemyCount;
+    } else {
+      this.score += this.defaultScorePerEnemy * enemyCount;
+    }
+  }
+
+  getScore() {
+    return this.score;
+  }
+
   collisionDetection() {
     this.enemyRows.forEach((enemyRow) => {
       enemyRow.forEach((enemy, enemyIndex) => {
         if(this.playerBulletController.collideWith(enemy)) {
-          //play sound
-          this.enemyDeathSound.currentTime = 0;
-          this.enemyDeathSound.play();
-          enemyRow.splice(enemyIndex, 1);
+          if (enemy.trigger) {
+            this.updateScore(true, enemyRow.length);
+            //Delete entire row
+            enemyRow.splice(0, enemyRow.length);
+          } else {
+            //Check strength of enemy
+            if (enemy.strengthOver()) {
+              this.updateScore(false, 1);
+              //play death sound
+              this.enemyDeathSound.currentTime = 0;
+              this.enemyDeathSound.play();
+              enemyRow.splice(enemyIndex, 1);
+            } else {
+              enemy.reduceStrength();
+            }
+          }
         }
       });
     });
@@ -135,10 +157,10 @@ export default class EnemyController {
   createEnemies() {
     this.enemyMap.forEach((row, rowIndex) => {
       this.enemyRows[rowIndex] = [];
-      row.forEach((enemyNumber, enemyIndex) => {
-        if (enemyNumber > 0) {
+      row.forEach((enemy, enemyIndex) => {
+        if (enemy !== null) {
           this.enemyRows[rowIndex].push(
-            new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber)
+            new Enemy(enemyIndex * 50, (this.hudHeight + rowIndex * 35), enemy.strength, enemy.name, enemy.trigger)
           );
         }
       });
