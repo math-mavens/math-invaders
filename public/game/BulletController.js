@@ -2,6 +2,7 @@ import Bullet from "./Bullet.js";
 
 export default class BulletController {
   bullets = [];
+  bulletsFired = 0;
   timeTillNextBulletAllowed = 0;
 
   constructor(canvas, maxBulletsAtATime, bulletColor, soundEnabled) {
@@ -14,11 +15,17 @@ export default class BulletController {
     this.shootSound.volume = 0.2;
   }
 
+  getBulletsFired() {
+    return this.bulletsFired;
+  }
+
+
   shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
     if (this.timeTillNextBulletAllowed <= 0
         && this.bullets.length < this.maxBulletsAtATime) {
       const bullet = new Bullet(this.canvas, x, y, velocity,
                                 this.bulletColor);
+      this.bulletsFired++;
       this.bullets.push(bullet);
       if (this.soundEnabled) {
         this.shootSound.currentTime = 0;
