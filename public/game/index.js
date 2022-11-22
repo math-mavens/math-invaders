@@ -35,7 +35,6 @@ function game() {
     enemyBulletController.draw(ctx);
   } else { // If game over stop the game loop
     clearInterval(setIntervalID);
-    // console.log("Cleared Interval...");
   }
 
   hudController.draw(ctx, enemyController.getScore(),
@@ -44,12 +43,18 @@ function game() {
 
 function displayGameOver() {
   if (isGameOver) {
-    let text = didWin ? "You Win" : "Game Over";
-    let textOffset = didWin ? 3.5 : 5;
+    let result = didWin ? "You Win!" : "Try again!";
+    // let textOffset = didWin ? 3.5 : 5;
 
-    ctx.fillStyle = "white";
-    ctx.font = "70px Ariel";
-    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    // ctx.fillStyle = "white";
+    // ctx.font = "70px Ariel";
+    // ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+
+    //TODO: Show Score with Reply and Next Level buttons
+    const scorePopup = document.getElementById('score-popup');
+    scorePopup.classList.toggle('d-none');
+    const scoreMessage = document.getElementById('score-message');
+    scoreMessage.innerText = result;
   }
 }
 
@@ -59,7 +64,6 @@ function checkGameOver() {
   }
   if (enemyBulletController.collideWith(player)) {
     isGameOver = true;
-
   }
   if (enemyController.collideWith(player)) {
     isGameOver = true;
@@ -70,5 +74,14 @@ function checkGameOver() {
   }
 }
 
-hudController = new HudController();
-setIntervalID = setInterval(game, 1000 / 45);
+function startGame() {
+  const startPopup = document.getElementById("start-popup");
+  console.log(startPopup);
+  startPopup.classList.toggle('d-none');
+  canvas.classList.toggle('d-none');
+  hudController = new HudController();
+  setIntervalID = setInterval(game, 1000 / 45);
+}
+
+const startBtn = document.getElementById("start-btn");
+startBtn.addEventListener('click', startGame);

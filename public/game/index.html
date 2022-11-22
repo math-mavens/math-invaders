@@ -4,33 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/style.css">
   <link rel="shortcut icon" href="#">
-  <title>Space Invaders</title>
-  <style>
-    canvas {
-      box-shadow: black 20px 10px 50px;
-    }
-    h1 {
-      font-family: Helvetica, sans-serif;
-      font-size: 2.9em;
-      margin: 0px;
-      margin-bottom: 10px;
-    }
-    body {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding: 0px;
-      margin: 0px;
-      height: 100vh;
-      background: linear-gradient(0deg, rgb(97, 98, 99) 0%,
-        rgba(0, 0, 0, 0) 100%);
-    }
-  </style>
+  <title>Math Invaders</title>
 </head>
 <body>
-    <h1>Math Invaders</h1>
-    <canvas id="game"></canvas>
+    <div class="container d-flex justify-content-center text-center">
+      <div id="content">
+        <h1 id="title">Math Invaders</h1>
+        <div id="canvas-content">
+          <canvas id="game" class="d-none"></canvas>
+          <div id="start-popup" class="rounded">
+            <div id="start-content" class="d-flex flex-column align-items-center justify-content-center">
+              <div>
+                <h2>Click 'Start' below!</h2>
+                <button id="start-btn" class="btn btn-primary btn-lg">Start</button>
+              </div>
+            </div>
+          </div>
+          <div id="score-popup" class="d-none rounded">
+            <div id="score-content" class="d-flex flex-column align-items-center justify-content-center">
+              <h3 id="score-message" class="py-4"></h3>
+              <div class="d-flex w-100 justify-content-around py-4">
+                <button id="replay-btn" class="btn btn-info btn-lg">Replay</button>
+                <button id="next-level-btn" class="btn btn-info btn-lg">Next Level</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <script type="module" src="index.js"></script>
 </body>
