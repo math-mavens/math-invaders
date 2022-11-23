@@ -1,0 +1,29 @@
+<div class="container-wrap">
+	<section id="leaderboard">
+		<nav class="ladder-nav">
+			<div class="ladder-title">
+			<h1>Your Attempts</h1>
+			</div>
+			<div class="ladder-search">
+				<input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Your Attempts..." />
+			</div>
+		</nav>
+		<table id="rankings" class="leaderboard-results" width="100%">
+			<thead>
+				<tr>
+					<th>Time Taken</th>
+					<th>Problems Solved</th>
+					<th>Bullets Fired</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+      <% @attempts.each do |attempt| %>
+			<tbody>
+				<td><%= attempt.total_time  %></td>
+				<td><%= attempt.problems_solved %></td>
+				<td><%= attempt.bullets_fired %></td>
+				<td><%= attempt.score %></td>
+			</tbody>
+      <% end %>
+		</table>
+	</section>

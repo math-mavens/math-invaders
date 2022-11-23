@@ -10,6 +10,8 @@
               <div class="card-body">
                 <h2>Math Invaders</h2>
                 <p class="mb-0"><%= level.name %></p>
+                <p>Best Time: <%= @all_time.min %> </p>
+                <p>Total Attempts: <%= @attempts.count %></p>
                 <p>Category: <%= level.category.name %></p>
                 <%= link_to "Play 🎮", new_attempt_path(level_id: level.id), class: "btn button-play me-2 my-2 justify-content-center" %>
               </div>
