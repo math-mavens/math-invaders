@@ -1,6 +1,6 @@
 export default class HudController {
   yOffset = 25;
-  elapsedSeconds = 0;
+  elapsedMilliseconds = 0;
 
   constructor() {
     this.gameTime = Date.now();
@@ -10,16 +10,20 @@ export default class HudController {
     ctx.fillStyle = "white";
     ctx.font = "18px Verdana";
 
-    this.elapsedSeconds = (Date.now() - this.gameTime) / 1000;
+    this.elapsedMilliseconds = (Date.now() - this.gameTime);
 
-    ctx.fillText(`${this.elapsedSeconds.toFixed(1)} seconds`, 470, this.yOffset);
+    ctx.fillText(`${this.getTimeInSeconds().toFixed(1)} seconds`, 470, this.yOffset);
     ctx.fillText(`Bullets fired: ${playerBulletsFired}`, 10, this.yOffset);
 
     ctx.fillStyle = "red";
     ctx.fillText(`Score: ${score}`, 270, this.yOffset);
   }
 
+  getTimeInSeconds() {
+    return (this.elapsedMilliseconds / 1000);
+  }
+
   getTotalTimePlayed() {
-    return this.elapsedSeconds;
+    return this.elapsedMilliseconds;
   }
 }

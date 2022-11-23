@@ -14,7 +14,7 @@ background.src = "./images/space.png";
 
 const playerBulletController = new BulletController(canvas, 10, "red", true);
 const enemyBulletController = new BulletController(canvas, 4, "white", true);
-const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
+let enemyController = null;
 const player = new Player(canvas, 3, playerBulletController);
 let hudController = null;
 
@@ -44,17 +44,33 @@ function game() {
 function displayGameOver() {
   if (isGameOver) {
     let result = didWin ? "You Win!" : "Try again!";
-    // let textOffset = didWin ? 3.5 : 5;
 
-    // ctx.fillStyle = "white";
-    // ctx.font = "70px Ariel";
-    // ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    // Make a fetch call to attempts/:id #update to save
+    //questions solved, total time and score
+    const score = enemyController.getScore();
+    const totalTime = hudController.getTotalTimePlayed();
+    const totalQuestions = attemptData['level']['total_problems'];
+    const problemsSolved = totalQuestions - enemyController.getQuestionsLeft();
+    const bulletsFired = playerBulletController.getBulletsFired();
 
-    //TODO: Show Score with Reply and Next Level buttons
-    const scorePopup = document.getElementById('score-popup');
-    scorePopup.classList.toggle('d-none');
-    const scoreMessage = document.getElementById('score-message');
-    scoreMessage.innerText = result;
+    fetch(`/attempts/${attemptId}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        attempt: {"score": score, "total_time": totalTime,
+                  "problems_solved": problemsSolved,
+                  "bullets_fired": bulletsFired}
+      })
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        //TODO: Show Score with Reply and Next Level buttons
+        const scorePopup = document.getElementById('score-popup');
+        scorePopup.classList.toggle('d-none');
+        const scoreMessage = document.getElementById('score-message');
+        scoreMessage.innerText = result;
+      });
   }
 }
 
@@ -80,6 +96,8 @@ function startGame() {
   startPopup.classList.toggle('d-none');
   canvas.classList.toggle('d-none');
 
+  enemyController = new EnemyController(canvas, enemyBulletController,
+    playerBulletController, attemptData['level']['name']);
   hudController = new HudController();
   setIntervalID = setInterval(game, 1000 / 45);
 }
@@ -95,7 +113,7 @@ fetch(`/attempts/${attemptId}`)
   .then((response) => response.json())
   .then((data) => {
     attemptData = data;
-
+    console.log(attemptData);
     const startTitle = document.getElementById("start-title");
     const startBtn = document.getElementById("start-btn");
 
