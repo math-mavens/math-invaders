@@ -2,75 +2,20 @@
   <div class="col-md-12 ml-auto mr-auto">
     <div class="group-cards">
       <div class="scrolling-wrapper row flex-row flex-nowrap gap-2">
-      <!-- CARD -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 px-0">
-          <div class="card-game">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
-            <div class="card-body">
-              <h2>Math Invaders</h2>
-              <p class="mb-0">Level: 1/5</p>
-              <p>Category: addition</p>
-              <%= link_to "Play 🎮",  user_session_path, class: "btn button-play me-2 my-2 justify-content-center" %>
-            </div>
-          </div>
-        </div>
         <!-- CARD -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 px-0">
-          <div class="card-game">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
-            <div class="card-body">
-              <h2>Math Invaders</h2>
-              <p class="mb-0">Level: 1/5</p>
-              <p>Category: addition</p>
-              <div class="d-flex">
-                <%= link_to "Play 🎮",  user_session_path, class: "btn button-play me-2 my-2 justify-content-center" %>
+        <% @levels.each do |level| %>
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-4 px-0">
+            <div class="card-game">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
+              <div class="card-body">
+                <h2>Math Invaders</h2>
+                <p class="mb-0"><%= level.name %></p>
+                <p>Category: <%= level.category.name %></p>
+                <%= link_to "Play 🎮", "game/index.html?l=#{level.id}&a=1", class: "btn button-play me-2 my-2 justify-content-center" %>
               </div>
             </div>
           </div>
-        </div>
-        <!-- CARD -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 px-0">
-          <div class="card-game">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
-            <div class="card-body">
-              <h2>Math Invaders</h2>
-              <p class="mb-0">Level: 1/5</p>
-              <p>Category: addition</p>
-              <div class="d-flex">
-                <%= link_to "Play 🎮",  user_session_path, class: "btn button-play me-2 my-2 justify-content-center" %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- CARD -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 px-0">
-          <div class="card-game">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
-            <div class="card-body">
-              <h2>Math Invaders</h2>
-              <p class="mb-0">Level: 1/5</p>
-              <p>Category: addition</p>
-              <div class="d-flex">
-                <%= link_to "Play 🎮",  user_session_path, class: "btn button-play me-2 my-2 justify-content-center" %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- CARD -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 px-0">
-          <div class="card-game">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
-            <div class="card-body">
-              <h2>Math Invaders</h2>
-              <p class="mb-0">Level: 1/5</p>
-              <p>Category: addition</p>
-              <div class="d-flex">
-                <%= link_to "Play 🎮",  user_session_path, class: "btn button-play me-2 my-2 justify-content-center" %>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <% end %>
       </div>
     </div>
   </div>
