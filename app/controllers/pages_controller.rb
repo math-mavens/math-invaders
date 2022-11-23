@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @levels = Level.all
+    @attempts = Attempt.where(user: current_user)
   end
 end
