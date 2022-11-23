@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Dashboard</h1>
+    <%= render "shared/gamecard" %>
+    <% @levels.each do |level|  %>
+    <%= level.name %>-<%= level.category.name %>
+    <% end %>
+</div>
