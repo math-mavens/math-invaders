@@ -82,6 +82,19 @@ function startGame() {
   hudController = new HudController();
   setIntervalID = setInterval(game, 1000 / 45);
 }
+console.log(window.location.href);
+let params = new URLSearchParams(window.location.href);
+console.log(params);
+const url = new URL(window.location.href);
+const searchParams = url.searchParams;
+searchParams.get('l');
+searchParams.get('a');
+console.log(searchParams.get('l'));
+console.log(searchParams.get('a'));
+
+fetch("/attempts/1")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 
 const startBtn = document.getElementById("start-btn");
 startBtn.addEventListener('click', startGame);
