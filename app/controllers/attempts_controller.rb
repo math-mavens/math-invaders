@@ -1,9 +1,4 @@
 class AttemptsController < ApplicationController
-  skip_before_action :authenticate_user!, except: %i[show]
-
-  def get
-  end
-
   def new
   end
 

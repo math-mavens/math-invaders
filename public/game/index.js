@@ -85,12 +85,8 @@ function startGame() {
 }
 
 
-// console.log(window.location.href);
-// console.log(params);
 const url = new URL(window.location.href);
 const searchParams = url.searchParams;
-// console.log(searchParams.get('l'));
-// console.log(searchParams.get('a'));
 
 const attemptId = searchParams.get('a');
 let attemptData = null;
@@ -99,8 +95,10 @@ fetch(`/attempts/${attemptId}`)
   .then((response) => response.json())
   .then((data) => {
     attemptData = data;
+
     const startTitle = document.getElementById("start-title");
     const startBtn = document.getElementById("start-btn");
+
     startBtn.addEventListener('click', startGame);
     startTitle.innerText = `Hi ${attemptData['user']['first_name']}, click start to play!`;
     startBtn.classList.toggle("d-none");
