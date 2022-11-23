@@ -21,8 +21,10 @@ export default class EnemyController {
   defaultScorePerEnemy = 100;
   triggerBonusPerEnemy = 100;
 
-  constructor(canvas, enemyBulletController, playerBulletController) {
+  constructor(canvas, enemyBulletController, playerBulletController, levelName) {
     this.canvas = canvas;
+
+    this.enemyMap = Levels[levelName];
     this.createEnemies();
     this.enemybulletController = enemyBulletController;
     this.playerBulletController = playerBulletController;
@@ -50,6 +52,10 @@ export default class EnemyController {
 
   getScore() {
     return this.score;
+  }
+
+  getQuestionsLeft() {
+    return this.enemyRows.length;
   }
 
   collisionDetection() {
