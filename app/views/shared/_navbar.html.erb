@@ -10,6 +10,7 @@
         <ul class="nav col-12 col-lg-auto mr-4 ms-lg-auto mb-2 justify-content-center mb-md-0 text-navbar">
           <li><%= link_to "About us", "#", class: "nav-link" %></li>
           <li><%= link_to "Leaderboard", "#", class: "nav-link" %></li>
+          <li><%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
         </ul>
         <% if user_signed_in? %>
           <div class="text-end">
