@@ -9,10 +9,12 @@
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPC9J6l5lg87sao2Gj6Mf-kVYkxcv6L_JTyw&usqp=CAU" alt="">
               <div class="card-body">
                 <h2>Math Invaders</h2>
-                <p class="mb-0"><%= level.name %></p>
+                <div class="d-flex justify-content-end">
+                <p class="badge bg-warning"><%= level.category.name%></p>
+                </div>
+                <p><%= level.name %></p>
                 <p>Best Time: <%= @all_time.min %> </p>
                 <p>Total Attempts: <%= @attempts.count %></p>
-                <p>Category: <%= level.category.name %></p>
                 <%= link_to "Play 🎮", new_attempt_path(level_id: level.id), class: "btn button-play me-2 my-2 justify-content-center" %>
               </div>
             </div>

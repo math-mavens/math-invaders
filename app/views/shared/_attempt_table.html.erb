@@ -21,10 +21,10 @@
       <tbody class="rows-color">
       <% @attempts.each do |attempt| %>
       <tr>
-				<td><%= attempt.total_time %></td>
-				<td><%= attempt.problems_solved %></td>
-				<td><%= attempt.bullets_fired %></td>
-				<td><%= attempt.score %></td>
+        <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000 %></td>
+        <td><%= attempt.problems_solved.nil? ? 0 : attempt.problems_solved %></td>
+        <td><%= attempt.bullets_fired.nil? ? 0 : attempt.bullets_fired %></td>
+        <td><%= attempt.score.nil? ? 0 : attempt.score.round %></td>
       </tr>
       <% end %>
 			</tbody>

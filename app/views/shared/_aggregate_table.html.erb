@@ -5,7 +5,7 @@
 			<h1>Your Statistics</h1>
 			</div>
 			<div class="ladder-search">
-				<input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Your Attempts..." />
+				<%# <input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Your Attempts..." /> %>
 			</div>
 		</nav>
 		<table id="rankings" class="leaderboard-results" width="100%">
@@ -21,7 +21,7 @@
 				<td><%= @attempts.count  %></td>
 				<td><%= @all_time.sum %></td>
 				<td><%= @total_problems.sum %></td>
-				<td>5</td>
+				<td><%= @attempts.count %></td>
 			</tbody>
 		</table>
 	</section>
