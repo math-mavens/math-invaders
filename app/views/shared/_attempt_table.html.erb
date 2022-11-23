@@ -1,5 +1,5 @@
 <div class="container-wrap">
-	<section id="leaderboard">
+	<section id="leaderboard scrollbar">
 		<nav class="ladder-nav">
 			<div class="ladder-title">
 			<h1>Your Attempts</h1>
@@ -8,6 +8,7 @@
 				<input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Your Attempts..." />
 			</div>
 		</nav>
+    <div style="height: 500px; overflow:auto;">
 		<table id="rankings" class="leaderboard-results" width="100%">
 			<thead>
 				<tr>
@@ -17,13 +18,17 @@
 					<th>Score</th>
 				</tr>
 			</thead>
+      <tbody class="rows-color">
       <% @attempts.each do |attempt| %>
-			<tbody>
-				<td><%= attempt.total_time  %></td>
+      <tr>
+				<td><%= attempt.total_time %></td>
 				<td><%= attempt.problems_solved %></td>
 				<td><%= attempt.bullets_fired %></td>
 				<td><%= attempt.score %></td>
-			</tbody>
+      </tr>
       <% end %>
+			</tbody>
 		</table>
+  </div>
 	</section>
+ </div>

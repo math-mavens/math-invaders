@@ -1,7 +1,4 @@
-* {
-  margin:0;
-  padding:0;
-}
+
 
 input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date] {
     padding: 10px;
@@ -15,6 +12,7 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
 }
+
 input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date], .material.woocommerce-page[data-form-style="default"] input#coupon_code {
     background-color: white;
     border-radius: 4px;
@@ -46,10 +44,6 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
     text-transform:uppercase;
   }
 
-.leaderboard-results {
-  text-align:left;
-  border-collapse: collapse;
-}
 .leaderboard-results thead th {
   padding: 25px;
   color:$dark;
@@ -58,7 +52,6 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
 }
 .leaderboard-results tbody td {
   padding:15px 25px;
-  background:#f1f1f1;
   font-size:16px;
   color:$dark;
 }
@@ -66,18 +59,27 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
   font-weight:bold;
 }
 
-.leaderboard-results tbody tr {
-  color:#747474;
-}
-.leaderboard-results tbody tr:first-child {
-  color:#686EF9;
-}
+// .leaderboard-results tbody tr {
+//   color:#747474;
+// }
+
 .leaderboard-results tbody span {
   font-weight:bold;
   padding:10px 15px;
   border-radius:50%;
 }
-.leaderboard-results tbody tr:first-child span {
-  background:#5055CB;
-  color:white;
+
+.rows-color tr:nth-child(even) {
+  background-color: White;
+}
+.rows-color tr:nth-child(odd) {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+th {
+  background: white;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
