@@ -13,3 +13,16 @@ if Category.all.count.zero?
   Category.create!(name: 'Division')
   puts "Created..."
 end
+
+puts "Starting to create Levels..."
+Attempt.destroy_all
+Level.destroy_all
+puts "Destroyed existing Attempts and Levels..."
+
+Level.create(category: Category.first, name: "level1", total_problems: 3)
+Level.create(category: Category.second, name: "level2", total_problems: 3)
+Level.create(category: Category.third, name: "level3", total_problems: 3)
+Level.create(category: Category.first, name: "level4", total_problems: 3)
+Level.create(category: Category.fourth, name: "level5", total_problems: 3)
+
+puts "Created first 5 levels..."
