@@ -3,6 +3,10 @@ class AttemptsController < ApplicationController
   before_action :set_attempt, only: %i[show edit update destroy]
 
   def new
+    level = Level.find(params[:level_id])
+    attempt = Attempt.create(level: level, user: current_user)
+
+    redirect_to("/game/index.html?a=#{attempt.id}")
   end
 
   def show
