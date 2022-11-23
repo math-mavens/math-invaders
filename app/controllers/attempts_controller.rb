@@ -1,5 +1,6 @@
 class AttemptsController < ApplicationController
   skip_before_action :authenticate_user!, except: %i[show]
+
   def get
   end
 
@@ -8,7 +9,7 @@ class AttemptsController < ApplicationController
 
   def show
     @attempt = Attempt.find(params[:id])
-    render json: @attempt
+    render json: @attempt.to_json(include: %i[user level])
   end
 
   def create

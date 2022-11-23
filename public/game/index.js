@@ -76,25 +76,35 @@ function checkGameOver() {
 
 function startGame() {
   const startPopup = document.getElementById("start-popup");
-  console.log(startPopup);
+
   startPopup.classList.toggle('d-none');
   canvas.classList.toggle('d-none');
+
   hudController = new HudController();
   setIntervalID = setInterval(game, 1000 / 45);
 }
-console.log(window.location.href);
-let params = new URLSearchParams(window.location.href);
-console.log(params);
+
+
+// console.log(window.location.href);
+// console.log(params);
 const url = new URL(window.location.href);
 const searchParams = url.searchParams;
-searchParams.get('l');
-searchParams.get('a');
-console.log(searchParams.get('l'));
-console.log(searchParams.get('a'));
+// console.log(searchParams.get('l'));
+// console.log(searchParams.get('a'));
 
-fetch("/attempts/1")
+const attemptId = searchParams.get('a');
+let attemptData = null;
+
+fetch(`/attempts/${attemptId}`)
   .then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => {
+    attemptData = data;
+    const startTitle = document.getElementById("start-title");
+    const startBtn = document.getElementById("start-btn");
+    startBtn.addEventListener('click', startGame);
+    startTitle.innerText = `Hi ${attemptData['user']['first_name']}, click start to play!`;
+    startBtn.classList.toggle("d-none");
+  });
 
-const startBtn = document.getElementById("start-btn");
-startBtn.addEventListener('click', startGame);
+// const startBtn = document.getElementById("start-btn");
+// startBtn.addEventListener('click', startGame);
