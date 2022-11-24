@@ -20,6 +20,8 @@ class UserLevel
     return "NA" if @attempts.nil?
 
     @all_time = @attempts.map(&:total_time).compact
+    return "NA" if @all_time.count.zero?
+
     "#{@all_time.min / 1000.0} secs"
   end
 

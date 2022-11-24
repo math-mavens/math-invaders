@@ -19,9 +19,9 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
 }
 /* /end Codepen Specific */
 /* Ladder Navigation */
-  #leaderboard {
-      padding:50px;
-  }
+  // #leaderboard {
+  //     padding:50px;
+  // }
   .ladder-nav {
       display:flex;
       flex-wrap:wrap;
@@ -46,14 +46,14 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
 
 .leaderboard-results thead th {
   padding: 25px;
-  color:$dark;
-  font-size:14px;
+  color:rgb(7, 7, 7);
+  font-size:20px;
   font-weight:bold;
 }
 .leaderboard-results tbody td {
-  padding:15px 25px;
-  font-size:16px;
-  color:$dark;
+  padding:8px 25px;
+  font-size:18px;
+  color:rgb(7, 7, 7);;
 }
 .leaderboard-results tbody td:nth-of-type(7) {
   font-weight:bold;

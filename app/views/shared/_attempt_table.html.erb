@@ -1,4 +1,4 @@
-<div class="container-wrap">
+<div class="container-wrap border rounded-4">
 	<section id="leaderboard scrollbar">
 		<nav class="ladder-nav">
 			<div class="ladder-title">
@@ -12,6 +12,7 @@
 		<table id="rankings" class="leaderboard-results" width="100%">
 			<thead>
 				<tr>
+					<th>Attempt No.</th>
 					<th>Time Taken</th>
 					<th>Problems Solved</th>
 					<th>Bullets Fired</th>
@@ -21,10 +22,11 @@
       <tbody class="rows-color">
       <% @attempts.each do |attempt| %>
       <tr>
-        <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000 %></td>
+        <td><%= attempt.id.nil? ? 0 : attempt.id %></td>
+        <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000.0 %> secs</td>
         <td><%= attempt.problems_solved.nil? ? 0 : attempt.problems_solved %></td>
         <td><%= attempt.bullets_fired.nil? ? 0 : attempt.bullets_fired %></td>
-        <td><%= attempt.score.nil? ? 0 : attempt.score.round %></td>
+        <td><%= attempt.score.nil? ? 0 : attempt.score.round %> pts</td>
       </tr>
       <% end %>
 			</tbody>

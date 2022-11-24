@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @user_levels = []
 
     @levels.each do |level|
-      @level_attempts = Attempt.where(user: current_user, level: level)
+      @level_attempts = Attempt.where(user: current_user, level: level).and(Attempt.where.not(total_time: nil))
       @user_level = UserLevel.new(level, @level_attempts)
       @user_levels << @user_level
     end
