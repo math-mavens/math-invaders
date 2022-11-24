@@ -1,0 +1,83 @@
+input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date] {
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 24px;
+  color: $dark;
+  background-color: #F1F1F1;
+  border: none;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date], .material.woocommerce-page[data-form-style="default"] input#coupon_code {
+  background-color: white;
+  border-radius: 4px;
+}
+/* /end Codepen Specific */
+/* Ladder Navigation */
+
+.ladder-nav-lvl {
+    display:flex;
+    flex-wrap:wrap;
+    align-items: center;
+    background: $orange;
+    padding:10px 25px;
+    border-radius:10px;
+}
+.ladder-title-lvl {
+  flex:2;
+}
+.ladder-search-lvl {
+  flex:1;
+  padding-right:25px;
+}
+.ladder-title-lvl {
+  font-size:20px;
+  color:$white!important;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.leaderboard-results-lvl {
+text-align:left;
+border-collapse: collapse;
+}
+.leaderboard-results-lvl thead th {
+padding: 25px;
+color: black;
+font-size:18px;
+font-weight:900;
+}
+.leaderboard-results-lvl tbody td {
+padding:15px 25px;
+font-size:16px;
+color:$dark;
+}
+
+.leaderboard-results-lvl tbody span {
+font-weight:bold;
+padding:10px 15px;
+border-radius:50%;
+}
+
+.leaderboard-results-lvl tr {
+  border-radius: 4px;
+
+  }
+
+
+.rows-lvl tr:nth-child(even) {
+  background-color: White;
+}
+.rows-lvl tr:nth-child(odd) {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.score-bold {
+  font-weight:900;
+}
+
+.user-row-color {
+  background-color: #ffefd4a0 !important;
+}
