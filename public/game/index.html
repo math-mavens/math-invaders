@@ -20,9 +20,23 @@
           <canvas id="game" class="d-none"></canvas>
           <div id="start-popup" class="rounded">
             <div id="start-content" class="d-flex flex-column align-items-center justify-content-center">
+              <!-- STAR WAR TXT-->
+              <div id="space" class="body-sw-text">
+                <section class="star-wars stars">
+                  <div class="crawl">
+                    <div class="title">
+                      <p>Math Invaders</p>
+                      <h1>Addition</h1>
+                      <p>Level 2</p>
+                    </div>
+                    <p>Train your mathematics skills with Math Mavens and become the new Einstein !</p>
+                  </div>
+                </section>
+              </div>
+              <!-- END -->
               <div>
-                <h2 id="start-title">Loading game...</h2>
-                <button id="start-btn" class="d-none btn btn-primary btn-lg">Start</button>
+                <h2 style="z-index: 99; color:white; margin-top: 8px; margin-bottom: 4px; "id="start-title">Loading game...</h2>
+                <button style="background-color: #feda4a; margin-bottom: 8px; padding-left: 30px; padding-right: 30px;" id="start-btn" class="d-none btn btn-start screen-start-btn">Play</button>
               </div>
             </div>
           </div>
@@ -39,8 +53,6 @@
         </div>
       </div>
     </div>
-
-
     <script type="module" src="index.js"></script>
 </body>
 </html>
