@@ -8,7 +8,7 @@ class AttemptsController < ApplicationController
 
     attempt = Attempt.create(level: level, user: current_user)
 
-    redirect_to "/game/index.html?a=#{attempt.id}", head: :ok
+    redirect_to "/game/index.html?a=#{attempt.id}", status: 302
   end
 
   def show
