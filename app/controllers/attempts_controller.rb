@@ -1,6 +1,6 @@
 class AttemptsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
-  before_action :set_attempt, only: %i[show edit update destroy]
+  before_action :set_attempt, only: %i[show update]
 
   def new
     level = Level.find(params[:level_id])
@@ -8,7 +8,7 @@ class AttemptsController < ApplicationController
 
     attempt = Attempt.create(level: level, user: current_user)
 
-    redirect_to("/game/index.html?a=#{attempt.id}")
+    redirect_to "/game/index.html?a=#{attempt.id}", head: :ok
   end
 
   def show
@@ -16,9 +16,7 @@ class AttemptsController < ApplicationController
     render json: @attempt.to_json(include: %i[user level])
   end
 
-  def create
-    @attempt = Attempt.new
-  end
+  def create; end
 
   def update
     @attempt.update(attempt_params)

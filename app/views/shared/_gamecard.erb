@@ -11,7 +11,9 @@
                 <h2>Math Invaders</h2>
                 <p class="mb-0"><%= level.name %></p>
                 <p>Category: <%= level.category.name %></p>
-                <%= link_to "Play 🎮", new_attempt_path(level_id: level.id), class: "btn button-play me-2 my-2 justify-content-center" %>
+                <%= link_to "Play 🎮", new_attempt_path(level_id: level.id),
+                  class: "btn button-play me-2 my-2 justify-content-center",
+                  data: { turbo: false } %>
               </div>
             </div>
           </div>
