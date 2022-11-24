@@ -26,6 +26,10 @@
                             required: true,
                             input_html: { autocomplete: "new-password" } %>
                 <%= f.input :dob, required: true, as: :date,
+                            label: 'Date of Birth',
+                            start_year: Date.today.year - 20,
+                            end_year: Date.today.year - 5,
+                            order: [:day, :month, :year],
                             input_html: { autocomplete: "off" } %>
                 <%= f.input :nickname,
                             input_html: { autocomplete: "nickname" }%>
