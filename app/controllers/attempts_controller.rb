@@ -4,6 +4,8 @@ class AttemptsController < ApplicationController
 
   def new
     level = Level.find(params[:level_id])
+    level = Level.last if level.nil?
+
     attempt = Attempt.create(level: level, user: current_user)
 
     redirect_to("/game/index.html?a=#{attempt.id}")
