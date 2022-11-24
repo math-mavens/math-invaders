@@ -2,11 +2,10 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 50px;
   margin: 0px;
   height: 100vh;
-  background: linear-gradient(0deg, rgb(97, 98, 99) 0%,
-    rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(180deg, rgb(255, 239, 212) 0%,
+    rgb(249, 217, 162) 100%);
   font-family: 'League Spartan', sans-serif;
   overflow: hidden;
 }
@@ -18,12 +17,19 @@ h1 {
   margin-bottom: 4px;
 }
 
+h2 {
+  font-family: League Spartan;
+  font-size: 2em;
+  margin: 0px;
+  margin-bottom: 4px;
+}
+
 #title, #level-name {
   margin-bottom: 2px;
 }
 
 canvas {
-  box-shadow: black 20px 10px 50px;
+  box-shadow: black 10px 5px 25px;
 }
 
 #canvas-content {
@@ -36,6 +42,7 @@ canvas {
   height: 600px;
   width: 600px;
   background-color: black;
+  box-shadow: black 10px 5px 25px;
   position: relative;
   animation:mymove 5s linear infinite;
   background-size: 100% 80%;
@@ -51,10 +58,33 @@ canvas {
 #score-popup {
   height: 300px;
   width: 300px;
-  background-color: white;
+  font-family: 'VT323', monospace;
+  background: transparent;
   position: absolute;
   top: 150px;
   left: 150px;
+}
+
+#score-message {
+  font-size: 60px;
+}
+
+.msg-red {
+  color: red;
+}
+
+.msg-green {
+  color: rgb(5, 175, 5);
+}
+
+#replay-link {
+ font-size: 24px;
+ color: #34cbc5;
+}
+
+#next-level-link {
+  font-size: 24px;
+  color: #34cbc5;
 }
 
 #score-content {
@@ -62,8 +92,11 @@ canvas {
   width: 300px;
 }
 
+#back-to-dashboard {
+  font-size: 22px;
+}
 
-/// Star wars txt //
+/* Star wars txt */
 .fade {
   position: relative;
   width: 100%;
@@ -85,14 +118,16 @@ canvas {
   letter-spacing: 5px;
   line-height: 150%;
   perspective: 300px;
-  text-align: justify;
+  text-align:center;
 }
 
 .crawl {
   position: relative;
   top: 99999px;
   transform-origin: 50% 100%;
-  animation: crawl 40s linear;
+  animation: crawl 15s ease-in;
+  animation-iteration-count: infinite;
+
 }
 
 .crawl > .title {

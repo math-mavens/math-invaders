@@ -69,7 +69,10 @@ function displayGameOver() {
         const scorePopup = document.getElementById('score-popup');
 
         const scoreMessage = document.getElementById('score-message');
+        let className = didWin ? 'msg-green' : 'msg-red';
+        scoreMessage.classList.add(className);
         scoreMessage.innerText = result;
+
         const replayLink = document.getElementById('replay-link');
         replayLink.href = `/attempts/new?level_id=${attemptData['level']['id']}`
         const nextLevelLink = document.getElementById('next-level-link');
