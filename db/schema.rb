@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_080217) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_075027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_080217) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "levelleaderboards", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "timetaken"
+    t.integer "total_problems"
+    t.integer "problems_solved"
+    t.integer "score"
+    t.integer "attempts"
+    t.bigint "user_id"
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_levelleaderboards_on_level_id"
+    t.index ["user_id"], name: "index_levelleaderboards_on_user_id"
   end
 
   create_table "levels", force: :cascade do |t|
@@ -60,5 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_080217) do
 
   add_foreign_key "attempts", "levels"
   add_foreign_key "attempts", "users"
+  add_foreign_key "levelleaderboards", "levels"
+  add_foreign_key "levelleaderboards", "users"
   add_foreign_key "levels", "categories"
 end
