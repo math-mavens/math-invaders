@@ -2,15 +2,20 @@
   background-color: #ffefd4;
 }
 
-.button-learning {
+.prm-button {
   background-color: #09B1AB;
   color: white !important;
   font-size: 18px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 18px;
-  padding-right: 18px;
+  font-weight: 800;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
+.prm-button:hover {
+  background-color: #09b1abd1;
+}
+
 
 .img-section img {
   height: 50px;

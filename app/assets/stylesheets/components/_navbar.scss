@@ -35,3 +35,37 @@
   color: #010A33 !important;
   font-size: 16px;
 }
+
+
+.prm-button-nav {
+  background-color: #09B1AB;
+  color: white !important;
+  font-size: 18px;
+  font-weight: 800;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.prm-button-nav:hover {
+  background-color: #09b1abd1;
+}
+
+
+.btn-avatar {
+  background-color: #ffefd4;
+}
+.btn-avatar:hover {
+  background-color: #ffefd4;
+}
+
+.btn-avatar span {
+  color: #F06D4F;
+  font-weight: bold;
+}
+
+.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show {
+  background-color: #ffefd4;
+  color: #F06D4F;
+  border: none;
+}
