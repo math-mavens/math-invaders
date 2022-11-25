@@ -25,12 +25,13 @@
   padding: 20px;
   background-color: #ffefd4;
   border-radius: 0px 0px 4px 4px;
-
+  height: auto;
 }
 
 .card-game img {
   max-height: 200px;
-  object-fit: cover;
+  // max-width: 250px;
+  object-fit:fill;
   border-radius: 4px 4px 0px 0px;
 }
 
@@ -44,21 +45,24 @@
 // }
 .scrolling-wrapper{
 	overflow-x: auto;
-  padding-left: -12px;
+  // padding-left: -12px;
 }
 
 ::-webkit-scrollbar {
   width: 1px;
-  border-radius: 4px;
+  border-radius: 1px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 4px;
+  border-radius: 1px;
+  height: 2px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #F06D4F;
-  border-radius: 4px;
+  border-radius: 1px;
+  height: 2px;
 }

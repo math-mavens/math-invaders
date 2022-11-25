@@ -1,0 +1,28 @@
+<div class="container-wrap my-5 border rounded-4">
+	<section id="leaderboard">
+		<nav class="ladder-nav">
+			<div class="ladder-title">
+			<h1>Your Statistics</h1>
+			</div>
+			<div class="ladder-search">
+				<%# <input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Your Attempts..." /> %>
+			</div>
+		</nav>
+		<table id="rankings" class="leaderboard-results" width="100%">
+			<thead>
+				<tr>
+					<th>No. of Attempts</th>
+					<th>Total Time Played</th>
+					<th>Total Problems Solved</th>
+					<th>Total Levels Played</th>
+				</tr>
+			</thead>
+			<tbody>
+				<td><%= @attempts.count  %></td>
+				<td><%= @all_time.sum %></td>
+				<td><%= @total_problems.sum %></td>
+				<td><%= @attempts.count %></td>
+			</tbody>
+		</table>
+	</section>
+  </div>
