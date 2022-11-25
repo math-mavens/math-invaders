@@ -7,40 +7,59 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./style/style.css">
   <link rel="shortcut icon" href="#">
   <title>Math Invaders</title>
 </head>
 <body>
-    <div class="container d-flex justify-content-center text-center">
+    <div class="container d-flex justify-content-center text-center m-5">
       <div id="content">
-        <h1 id="title">Math Invaders</h1>
+        <!-- <h2 id="title">Math Invaders</h2>
+        <h3 id="level-name"></h3> -->
         <div id="canvas-content">
-          <canvas id="game" class="d-none"></canvas>
+          <canvas id="game" class="d-none rounded"></canvas>
           <div id="start-popup" class="rounded">
             <div id="start-content" class="d-flex flex-column align-items-center justify-content-center">
+              <!-- STAR WAR TXT-->
+              <div id="space" class="body-sw-text">
+                <section class="star-wars stars">
+                  <div class="crawl">
+                    <div class="title">
+                      <h1>Math Invaders</h1>
+                      <h2 id="category-title">Addition</h2>
+                      <h2 id="level-name">Level name</h2>
+                    </div>
+                    <p>Train your mathematics skills with Math Mavens and become the next Einstein!</p>
+                  </div>
+                </section>
+              </div>
+              <!-- END -->
               <div>
-                <h2 id="start-title">Loading game...</h2>
-                <button id="start-btn" class="d-none btn btn-primary btn-lg">Start</button>
+                <h2 style="z-index: 99; color:white; margin-top: 8px; margin-bottom: 4px; "id="start-title">Loading game...</h2>
+                <button style="background-color: #feda4a; margin-bottom: 8px; padding-left: 30px; padding-right: 30px;" id="start-btn" class="d-none btn btn-start screen-start-btn">Play</button>
               </div>
             </div>
           </div>
           <div id="score-popup" class="d-none rounded">
             <div id="score-content" class="d-flex flex-column align-items-center justify-content-center">
-              <h3 id="score-message" class="py-4"></h3>
-              <div class="d-flex w-100 justify-content-around py-4">
-                <button id="replay-btn" class="btn btn-info btn-lg">Replay</button>
-                <button id="next-level-btn" class="btn btn-info btn-lg">Next Level</button>
+              <h3 id="score-message" class="my-4"></h3>
+              <div class="d-flex w-100 justify-content-around">
+                <a id="replay-link">Play Again<br>
+                  <i class="fa-solid fa-arrow-rotate-right"></i>
+                </a>
+                <a id="next-level-link">Next Level<br><i class="fa-solid fa-forward-fast"></i></a>
               </div>
-              <a id="back-to-dashboard" href="/dashboard" class="btn btn-link">Back to Dashboard</a>
+                <a id="back-to-dashboard" href="/dashboard" class="btn btn-link">Back to Dashboard
+                </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://kit.fontawesome.com/6ffba218bf.js" crossorigin="anonymous"></script>
     <script type="module" src="index.js"></script>
 </body>
 </html>

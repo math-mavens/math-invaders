@@ -67,9 +67,19 @@ function displayGameOver() {
         console.log(data)
         //TODO: Show Score with Reply and Next Level buttons
         const scorePopup = document.getElementById('score-popup');
-        scorePopup.classList.toggle('d-none');
+
         const scoreMessage = document.getElementById('score-message');
+        let className = didWin ? 'msg-green' : 'msg-red';
+        scoreMessage.classList.add(className);
         scoreMessage.innerText = result;
+
+        const replayLink = document.getElementById('replay-link');
+        replayLink.href = `/attempts/new?level_id=${attemptData['level']['id']}`
+        const nextLevelLink = document.getElementById('next-level-link');
+        const nextLevelId = parseInt(attemptData['level']['id']) + 1;
+        nextLevelLink.href = `/attempts/new?level_id=${nextLevelId}`;
+
+        scorePopup.classList.toggle('d-none');
       });
   }
 }
@@ -91,7 +101,7 @@ function checkGameOver() {
 }
 
 function startGame() {
-  const startPopup = document.getElementById("start-popup");
+  const startPopup = document.getElementById('start-popup');
 
   startPopup.classList.toggle('d-none');
   canvas.classList.toggle('d-none');
@@ -116,9 +126,11 @@ fetch(`/attempts/${attemptId}`)
     console.log(attemptData);
     const startTitle = document.getElementById("start-title");
     const startBtn = document.getElementById("start-btn");
+    const levelName = document.getElementById('level-name');
 
     startBtn.addEventListener('click', startGame);
     startTitle.innerText = `Hi ${attemptData['user']['first_name']}, click start to play!`;
+    levelName.innerText = attemptData['level']['name'];
     startBtn.classList.toggle("d-none");
   });
 
