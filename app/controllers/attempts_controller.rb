@@ -3,7 +3,7 @@ class AttemptsController < ApplicationController
   before_action :set_attempt, only: %i[show update]
 
   def new
-    level = Level.find(params[:level_id])
+    level = Level.find_by_id(params[:level_id])
     level = Level.last if level.nil?
 
     attempt = Attempt.create(level: level, user: current_user)
