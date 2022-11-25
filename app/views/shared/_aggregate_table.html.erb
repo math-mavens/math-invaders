@@ -19,7 +19,7 @@
 			</thead>
 			<tbody>
 				<td><%= @attempts.count  %></td>
-				<td><%= @all_time.sum %></td>
+				<td><%= (@all_time.sum / 1000) %> seconds</td>
 				<td><%= @total_problems.sum %></td>
 				<td><%= @attempts.count %></td>
 			</tbody>

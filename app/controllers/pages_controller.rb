@@ -15,7 +15,7 @@ class PagesController < ApplicationController
       @user_levels << @user_level
     end
 
-    @attempts = Attempt.where(user: current_user)
+    @attempts = Attempt.where(user: current_user).and(Attempt.where.not(total_time: nil)).order(id: :desc)
     @all_time = @attempts.map(&:total_time).compact
     @total_problems = @attempts.map(&:problems_solved).compact
   end
