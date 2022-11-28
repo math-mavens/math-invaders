@@ -1,9 +1,9 @@
 <header class="p-3 navbar-lewagon navbar-mathmavens sticky-top">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-4">
        <%= link_to "/", class: "navbar-brand" do %>
         <div class="d-flex">
-          <%= image_tag "https://raw.githubusercontent.com/math-mavens/math-invaders/master/app/assets/images/math-mavens.png" %><span class="fs-3 fw-bold">Math Mavens</span>
+          <%= image_tag "https://raw.githubusercontent.com/math-mavens/math-invaders/master/app/assets/images/imageedit_13_6681672423-removebg-preview.png" %><span class="fs-3 fw-bold">Math Mavens</span>
         </div>
        <% end %>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,6 @@
         <ul class="nav col-12 col-lg-auto mr-4 ms-lg-auto mb-2 justify-content-center mb-md-0 text-navbar">
           <li><%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
           <li><%= link_to "Leaderboards", levelleaderboards_path, class: "nav-link" %></li>
-          <li><%= link_to "About us", "#", class: "nav-link" %></li>
         </ul>
         <% if user_signed_in? %>
           <div class="text-end">
