@@ -1,11 +1,12 @@
 class AttemptsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
-  before_action :set_attempt, only: %i[show update]
+  before_action :set_attempt, only: %i[show update ]
 
   def index
     @attempts = Attempt.where(user: current_user).and(Attempt.where.not(total_time: nil)).order(id: :desc)
     @all_time = @attempts.map(&:total_time).compact
     @total_problems = @attempts.map(&:problems_solved).compact
+    @all_scores = @attempts.map(&:score).compact
   end
 
   def new

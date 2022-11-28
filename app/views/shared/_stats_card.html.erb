@@ -1,5 +1,5 @@
-<div class="d-flex" >
-  <div class="flip-card">
+<div class=" container spacing" >
+  <div class="flip-card me-3">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">Problems Solved</h1>
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  <div class="flip-card">
+  <div class="flip-card me-3">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">Time Taken</h1>
@@ -23,12 +23,12 @@
       </div>
     </div>
   </div>
-  <div class="flip-card">
+  <div class="flip-card me-3">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">High Score</h1>
         <span><i class="fa-solid fa-award fa-2xl mt-5" style="color:orange"></i></i></span>
-        <p class="mt-4">Your Best: <strong></strong> pts</p>
+        <p class="mt-4">Your Best: <strong><%= @all_scores.max.to_i %></strong> pts</p>
       </div>
       <div class="flip-card-back">
           <p>Amazing!</p>
@@ -40,7 +40,7 @@
       <div class="flip-card-front">
         <h1 class="mt-3">Bullets Fired</h1>
         <span><i class="fa-solid fa-bullseye fa-2xl mt-5" style="color:orange"></i></i></span>
-        <p class="mt-4">Your Best: 3 <strong></strong> shots</p>
+        <p class="mt-4">Your Best: <strong>3</strong> shots</p>
       </div>
       <div class="flip-card-back">
           <p>Amazing!</p>
