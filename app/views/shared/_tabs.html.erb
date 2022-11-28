@@ -2,10 +2,18 @@
   <div class="my-3">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/dashboard">My games</a>
+        <% if current_page?(:controller => 'pages', :action => 'dashboard') %>
+          <a class="nav-link active active-tab" aria-current="page" href="/dashboard">My games</a>
+        <% else %>
+          <a class="nav-link inactive-tab" href="/dashboard">My games</a>
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/attempts">Attempts</a>
+      <% if current_page?(:controller => 'attempts', :action => 'index') %>
+        <a class="nav-link active active-tab" aria-current="page" href="/attempts">Attempts</a>
+      <% else %>
+        <a class="nav-link inactive-tab" href="/attempts">Attempts</a>
+      <% end %>
       </li>
     </ul>
   </div>
