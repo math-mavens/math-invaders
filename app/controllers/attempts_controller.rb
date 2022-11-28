@@ -17,6 +17,7 @@ class AttemptsController < ApplicationController
     @all_time = @attempts.map(&:total_time).compact
     @total_problems = @attempts.map(&:problems_solved).compact
     @all_scores = @attempts.map(&:score).compact
+    @all_bullets = @attempts.map(&:bullets_fired).compact
 
     @levels = Level.all
   end
