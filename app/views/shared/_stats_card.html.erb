@@ -1,0 +1,47 @@
+<div class="d-flex" >
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1 class="mt-3">Problems Solved</h1>
+        <span><i class="fas fa-brain fa-2xl mt-5" style="color:orange"></i></i></span>
+        <p class="mt-4">Your Best: <strong>3</strong></p>
+      </div>
+      <div class="flip-card-back">
+        <h1 class="mt-3">Your Last 5 Attempts</h1>
+        <% @attempts.last(5).each do |attempt| %>
+          <p><%= attempt.problems_solved %> problems<br></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1 class="mt-3">Time Taken</h1>
+        <span><i class="fas fa-stopwatch fa-2xl mt-5" style="color:orange"></i></i></span>
+        <p class="mt-4">Your Best: <strong><%= @all_time.min/1000.0 %></strong> secs</p>
+      </div>
+      <div class="flip-card-back">
+        <h1 class="mt-3">Your Last 5 Attempts</h1>
+        <% @attempts.last(5).each do |attempt| %>
+          <p><%= attempt.problems_solved %> problems<br></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1 class="mt-3"></h1>
+        <span><i class="fas fa-stopwatch fa-2xl mt-5" style="color:orange"></i></i></span>
+        <p class="mt-4">Your Best: <strong><%= @all_time.min/1000.0 %></strong> secs</p>
+      </div>
+      <div class="flip-card-back">
+        <h1 class="mt-3">Your Last 5 Attempts</h1>
+        <% @attempts.last(5).each do |attempt| %>
+          <p><%= attempt.problems_solved %> problems<br></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
