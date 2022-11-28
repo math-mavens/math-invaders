@@ -7,8 +7,9 @@
 			</div>
 			<div class="ladder-search">
 				<%= form_tag attempts_path, method: 'get', class: 'd-flex' do %>
-          <%= select_tag 'level', options_from_collection_for_select(@levels, 'id', 'name'),
-            include_blank: true, class: 'form-select w-50 me-1' %>
+          <%= select_tag :level,
+            options_from_collection_for_select(@levels, 'id', 'name', params[:level]),
+            include_blank: 'All Levels', class: 'form-select w-50 me-1' %>
           <%= submit_tag 'Filter', class: 'btn btn-primary text-white' %>
         <% end %>
 			</div>
