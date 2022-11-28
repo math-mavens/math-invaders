@@ -2,8 +2,14 @@ class AttemptsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
   before_action :set_attempt, only: %i[show update]
 
+  def index
+    @attempts = Attempt.where(user: current_user).and(Attempt.where.not(total_time: nil)).order(id: :desc)
+    @all_time = @attempts.map(&:total_time).compact
+    @total_problems = @attempts.map(&:problems_solved).compact
+  end
+
   def new
-    level = Level.find(params[:level_id])
+    level = Level.find_by_id(params[:level_id])
     level = Level.last if level.nil?
 
     attempt = Attempt.create(level: level, user: current_user)
