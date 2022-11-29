@@ -5,13 +5,22 @@
 			<h1>Your Attempts</h1>
 			</div>
 			<div class="ladder-search">
-				<input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Your Attempts..." />
+				<label for="level-select"></label>
+          <select name="Levels" id="level-select">
+              <option value="">-- Level --</option>
+              <option value="level1">Level 1</option>
+              <option value="level2">Level 2</option>
+              <option value="level3">Level 3</option>
+              <option value="level4">Level 4</option>
+              <option value="level5">Level 5</option>
+          </select>
 			</div>
 		</nav>
     <div style="height: 500px; overflow:auto;">
 		<table id="rankings" class="leaderboard-results" width="100%">
 			<thead>
 				<tr>
+          <th id="level-name">Level</th>
 					<th>Attempt No.</th>
 					<th>Time Taken</th>
 					<th>Problems Solved</th>
@@ -22,6 +31,7 @@
       <tbody class="rows-color">
       <% @attempts.each do |attempt| %>
       <tr>
+        <td><%= attempt.level_id.nil? ? 0 : attempt.level_id %></td>
         <td><%= attempt.id.nil? ? 0 : attempt.id %></td>
         <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000.0 %> secs</td>
         <td><%= attempt.problems_solved.nil? ? 0 : attempt.problems_solved %></td>

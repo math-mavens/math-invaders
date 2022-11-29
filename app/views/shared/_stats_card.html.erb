@@ -1,5 +1,5 @@
-<div class="d-flex" >
-  <div class="flip-card">
+<div class=" container spacing" >
+  <div class="flip-card me-3">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">Problems Solved</h1>
@@ -7,14 +7,11 @@
         <p class="mt-4">Your Best: <strong>3</strong></p>
       </div>
       <div class="flip-card-back">
-        <h1 class="mt-3">Your Last 5 Attempts</h1>
-        <% @attempts.last(5).each do |attempt| %>
-          <p><%= attempt.problems_solved %> problems<br></p>
-        <% end %>
+          <p class="mt-5">Keep going you're doing great!</p>
       </div>
     </div>
   </div>
-  <div class="flip-card">
+  <div class="flip-card me-3">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">Time Taken</h1>
@@ -22,25 +19,31 @@
         <p class="mt-4">Your Best: <strong><%= @all_time.min/1000.0 %></strong> secs</p>
       </div>
       <div class="flip-card-back">
-        <h1 class="mt-3">Your Last 5 Attempts</h1>
-        <% @attempts.last(5).each do |attempt| %>
-          <p><%= attempt.problems_solved %> problems<br></p>
-        <% end %>
+          <p>Practice makes perfect!</p>
+      </div>
+    </div>
+  </div>
+  <div class="flip-card me-3">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1 class="mt-3">High Score</h1>
+        <span><i class="fa-solid fa-award fa-2xl mt-5" style="color:orange"></i></i></span>
+        <p class="mt-4">Your Best: <strong><%= @all_scores.max.to_i %></strong> pts</p>
+      </div>
+      <div class="flip-card-back">
+          <p>Amazing!</p>
       </div>
     </div>
   </div>
   <div class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <h1 class="mt-3"></h1>
-        <span><i class="fas fa-stopwatch fa-2xl mt-5" style="color:orange"></i></i></span>
-        <p class="mt-4">Your Best: <strong><%= @all_time.min/1000.0 %></strong> secs</p>
+        <h1 class="mt-3">Bullets Fired</h1>
+        <span><i class="fa-solid fa-bullseye fa-2xl mt-5" style="color:orange"></i></i></span>
+        <p class="mt-4">Your Best: <strong>3</strong> shots</p>
       </div>
       <div class="flip-card-back">
-        <h1 class="mt-3">Your Last 5 Attempts</h1>
-        <% @attempts.last(5).each do |attempt| %>
-          <p><%= attempt.problems_solved %> problems<br></p>
-        <% end %>
+          <p>Amazing!</p>
       </div>
     </div>
   </div>
