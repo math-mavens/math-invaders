@@ -1,0 +1,16 @@
+// .nav-link {
+//   color: $orange;
+//   font-weight: bold;
+// }
+
+// .nav-tabs {
+//   --#{$prefix}nav-tabs-border-color: $orange;
+// }
+
+.active-tab {
+  color: $white !important;
+}
+
+.inactive-tab:hover {
+  color: $orange !important;
+}
