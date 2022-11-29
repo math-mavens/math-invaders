@@ -3,11 +3,15 @@ class AttemptsController < ApplicationController
   before_action :set_attempt, only: %i[show update ]
 
   def index
-    @level = Level.find(params[:level])
+    @level = Level.find_by_id(params[:level])
     if @level
       @attempts = Attempt.where(user: current_user)
                          .and(Attempt.where.not(total_time: nil))
                          .filter_by_level(@level)
+                         .order(id: :desc)
+    else
+      @attempts = Attempt.where(user: current_user)
+                         .and(Attempt.where.not(total_time: nil))
                          .order(id: :desc)
     end
     @all_time = @attempts.map(&:total_time).compact
