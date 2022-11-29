@@ -1,6 +1,7 @@
 class Attempt < ApplicationRecord
   belongs_to :user
   belongs_to :level
+
   scope :filter_by_level, -> (level) { where level: level }
   # validates :total_time, :problems_solved, :score, presence: true
   # validates :total_time, numericality: { only_integer: true, greater_than: 0 }
