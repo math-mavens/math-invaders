@@ -1,10 +1,10 @@
-<div class=" container spacing" >
+<div class="container spacing my-4" >
   <div class="flip-card me-3">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">Problems Solved</h1>
         <span><i class="fas fa-brain fa-2xl mt-5" style="color:orange"></i></i></span>
-        <p class="mt-4">Your Best: <strong>3</strong></p>
+        <p class="mt-4">Your Best: <strong><%= @total_problems.max %></strong></p>
       </div>
       <div class="flip-card-back">
           <p class="mt-5">Keep going you're doing great!</p>
@@ -39,8 +39,8 @@
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <h1 class="mt-3">Bullets Fired</h1>
-        <span><i class="fa-solid fa-bullseye fa-2xl mt-5" style="color:orange"></i></i></span>
-        <p class="mt-4">Your Best: <strong>3</strong> shots</p>
+        <span><i class="fa-solid fa-bullseye fa-2xl mt-5" style="color:orange"></i></span>
+        <p class="mt-4">Most: <strong><%= @all_bullets.max %></strong> shots</p>
       </div>
       <div class="flip-card-back">
           <p>Amazing!</p>

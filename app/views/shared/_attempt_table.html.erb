@@ -1,49 +1,47 @@
 <div class="container">
-<div class="my-5 border rounded-4">
-	<section id="leaderboard scrollbar">
-		<nav class="ladder-nav">
-			<div class="ladder-title">
-			<h1>Your Attempts</h1>
-			</div>
-			<div class="ladder-search">
-				<label for="level-select"></label>
-          <select name="Levels" id="level-select">
-              <option value="">-- Level --</option>
-              <option value="level1">Level 1</option>
-              <option value="level2">Level 2</option>
-              <option value="level3">Level 3</option>
-              <option value="level4">Level 4</option>
-              <option value="level5">Level 5</option>
-          </select>
-			</div>
-		</nav>
-    <div style="height: 500px; overflow:auto;">
-		<table id="rankings" class="leaderboard-results" width="100%">
-			<thead>
-				<tr>
-          <th id="level-name">Level</th>
-					<th>Attempt No.</th>
-					<th>Time Taken</th>
-					<th>Problems Solved</th>
-					<th>Bullets Fired</th>
-					<th>Score</th>
-				</tr>
-			</thead>
-      <tbody class="rows-color">
-      <% @attempts.each do |attempt| %>
-      <tr>
-        <td><%= attempt.level_id.nil? ? 0 : attempt.level_id %></td>
-        <td><%= attempt.id.nil? ? 0 : attempt.id %></td>
-        <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000.0 %> secs</td>
-        <td><%= attempt.problems_solved.nil? ? 0 : attempt.problems_solved %></td>
-        <td><%= attempt.bullets_fired.nil? ? 0 : attempt.bullets_fired %></td>
-        <td><%= attempt.score.nil? ? 0 : attempt.score.round %> pts</td>
-      </tr>
-      <% end %>
-			</tbody>
-		</table>
+  <div class="my-4 border rounded-4">
+    <turbo-frame id="attempts">
+      <section id="leaderboard scrollbar">
+        <nav class="ladder-nav">
+          <div class="ladder-title">
+          <h1>Your Attempts</h1>
+          </div>
+          <div class="ladder-search">
+            <%= form_tag attempts_path, method: 'get', class: 'd-flex' do %>
+              <%= select_tag :level,
+                options_from_collection_for_select(@levels, 'id', 'name', params[:level]),
+                include_blank: 'All Levels', class: 'form-select w-50 me-1' %>
+              <%= submit_tag 'Filter', class: 'btn btn-primary text-white' %>
+            <% end %>
+          </div>
+        </nav>
+        <div style="height: auto; overflow:auto;">
+          <table id="rankings" class="leaderboard-results" width="100%">
+            <thead>
+              <tr>
+                <th id="level-name">Level</th>
+                <th>Attempt No.</th>
+                <th>Time Taken</th>
+                <th>Problems Solved</th>
+                <th>Bullets Fired</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody class="rows-color">
+            <% @attempts.each do |attempt| %>
+            <tr>
+              <td><%= attempt.level.name %></td>
+              <td><%= attempt.id.nil? ? 0 : attempt.id %></td>
+              <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000.0 %> secs</td>
+              <td><%= attempt.problems_solved.nil? ? 0 : attempt.problems_solved %></td>
+              <td><%= attempt.bullets_fired.nil? ? 0 : attempt.bullets_fired %></td>
+              <td><%= attempt.score.nil? ? 0 : attempt.score.round %> pts</td>
+            </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </turbo-frame>
   </div>
-	</section>
- </div>
-
 </div>
