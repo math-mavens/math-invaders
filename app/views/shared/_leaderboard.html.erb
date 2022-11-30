@@ -4,41 +4,9 @@
     <p style="margin-bottom: 40px; margin-top: 20px;" class="text-desc-home">Start playing in our different categories to train your math skills.<br>You can track your progress on your dashboard page with statistics based on your past games.</p>
   </div>
   <section id="levelleaderboard">
-    <nav class="ladder-nav-lvl">
-      <div class="ladder-title-lvl">
-      <h1>Leaderboard</h1>
-      </div>
-      <div class="ladder-search-lvl">
-        <input type="text" id="search-leaderboard-lvl" class="live-search-box" placeholder="Search A User..." />
-      </div>
-    </nav>
-    <table id="rankings" class="leaderboard-results-lvl" width="100%">
-      <thead>
-        <tr class="th-text">
-          <th>Rank</th>
-          <th>Nickname</th>
-          <th>Time taken</th>
-          <th>Problems solved</th>
-          <th>Bullets fired</th>
-          <th class="score-bold">Score</th>
-        </tr>
-      </thead>
-      <tbody class="rows-lvl">
-        <% @users.each do |user| %>
-          <%if user.id == current_user.id %>
-            <tr class="user-row-color">
-          <% else %>
-            <tr>
-          <% end %>
-            <td><%= user.id %></td>
-            <td><%= user.nickname %></td>
-            <td>55 seconds</td>
-            <td>5</td>
-            <td>90</td>
-            <td class="score-bold">3500</td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= area_chart Attempt.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Time", ytitle: "Games played", empty: "No data"  %>
+    <%# <%= area_chart Attempt.group(:total_time).sum.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Time", ytitle: "Games played", empty: "No data"  %>
+    <%# <%= column_chart Attempt.group(:total_time.sum).group_by_day(:created_at).count %>
+    <%# <%= line_chart completed_tasks_charts_path %>
   </section>
 </div>
