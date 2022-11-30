@@ -1,0 +1,31 @@
+<div class="container">
+    <%= render "shared/tabs" %>
+    <div class="text-center my-4">
+      <h1>Check all your gaming's statistics</h1>
+      <p>Analyze your data and results in differents mathematics operations to target where you need to train more.<br>Math Mavens helps you to gain fluency and confidence in math.</p>
+    </div>
+    <div class="my-4">
+      <!-- <div>
+        <h3 style="font-size: 24px;" class="text-center my-4">Attempts per day</h3>
+        <%# <%= line_chart @levels.map { |level|
+          {name: level.name, data: Attempt.feats.group_by_day(:created_at).count}
+        } %>
+      </div> -->
+      <div>
+        <h3 style="font-size: 24px;" class="text-center my-4">Attempts per day</h3>
+        <%= area_chart Attempt.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total attempts", empty: "No data"  %>
+      </div>
+      <div>
+        <h3 style="font-size: 24px;" class="text-center my-4">Total score per day</h3>
+        <%= area_chart Attempt.group_by_day(:created_at).sum(:score), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total score" %>
+      </div>
+      <div>
+        <h3 style="font-size: 24px;" class="text-center my-4">Best time per day</h3>
+        <%= area_chart Attempt.group_by_day(:created_at).minimum(:total_time), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Time taken" %>
+      </div>
+      <div>
+        <h3 style="font-size: 24px;" class="text-center my-4">Bullets fired per day</h3>
+        <%= area_chart Attempt.group_by_day(:created_at).sum(:bullets_fired), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total bullets fired" %>
+      </div>
+    </div>
+</div>
