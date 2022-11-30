@@ -1,5 +1,5 @@
 meta_product_name: "Math Mavens"
 meta_title: "Math Mavens - Raise a Math-a-Magician"
 meta_description: "Train your math skills with us while having fun. Improve your addition, subtraction, multiplication and division skills by playing through our array of levels. Specially curated to improve your mental math skills!"
-meta_image: "banner-img-family.jpeg" # should exist in `app/assets/images/`
+meta_image: "https://raw.githubusercontent.com/math-mavens/math-invaders/master/app/assets/images/banner-img-family.jpeg" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
