@@ -1,18 +1,9 @@
 <div class="container">
   <div class="my-4 border rounded-4">
-    <turbo-frame id="attempts">
       <section id="leaderboard scrollbar">
         <nav class="ladder-nav">
           <div class="ladder-title">
           <h1>Your Attempts</h1>
-          </div>
-          <div class="ladder-search">
-            <%= form_tag attempts_path, method: 'get', class: 'd-flex' do %>
-              <%= select_tag :level,
-                options_from_collection_for_select(@levels, 'id', 'name', params[:level]),
-                include_blank: 'All Levels', class: 'form-select w-50 me-1' %>
-              <%= submit_tag 'Filter', class: 'btn btn-primary text-white' %>
-            <% end %>
           </div>
         </nav>
         <div style="height: auto; overflow:auto;">
@@ -41,7 +32,6 @@
             </tbody>
           </table>
         </div>
-      </section>
-    </turbo-frame>
+    </section>
   </div>
 </div>

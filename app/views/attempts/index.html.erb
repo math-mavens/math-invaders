@@ -1,5 +1,8 @@
 <div class="container">
   <%= render "shared/tabs" %>
-  <%= render "shared/stats_card" %>
-  <%= render "shared/attempt_table" %>
+    <turbo-frame id="attempts">
+      <%= render "shared/filter" %>
+      <%= render "shared/stats_card" %>
+      <%= render "shared/attempt_table" %>
+    </turbo-frame>
 </div>
