@@ -15,4 +15,8 @@ class PagesController < ApplicationController
       @user_levels << @user_level
     end
   end
+
+  def statistics
+    @levels = Level.all
+  end
 end

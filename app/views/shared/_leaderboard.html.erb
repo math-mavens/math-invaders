@@ -4,9 +4,21 @@
     <p style="margin-bottom: 40px; margin-top: 20px;" class="text-desc-home">Start playing in our different categories to train your math skills.<br>You can track your progress on your dashboard page with statistics based on your past games.</p>
   </div>
   <section id="levelleaderboard">
-    <%= area_chart Attempt.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Time", ytitle: "Games played", empty: "No data"  %>
-    <%# <%= area_chart Attempt.group(:total_time).sum.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Time", ytitle: "Games played", empty: "No data"  %>
-    <%# <%= column_chart Attempt.group(:total_time.sum).group_by_day(:created_at).count %>
-    <%# <%= line_chart completed_tasks_charts_path %>
+    <div>
+      <h3 style="font-size: 24px;" class="text-center my-4">Attempts per day</h3>
+      <%= area_chart Attempt.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total attempts", empty: "No data"  %>
+    </div>
+    <div>
+      <h3 style="font-size: 24px;" class="text-center my-4">Total score per day</h3>
+      <%= area_chart Attempt.group_by_day(:created_at).sum(:score), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total score" %>
+    </div>
+    <div>
+      <h3 style="font-size: 24px;" class="text-center my-4">Best time per day</h3>
+      <%= area_chart Attempt.group_by_day(:created_at).minimum(:total_time), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Time taken" %>
+    </div>
+    <div>
+      <h3 style="font-size: 24px;" class="text-center my-4">Bullets fired per day</h3>
+      <%= area_chart Attempt.group_by_day(:created_at).sum(:bullets_fired), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total bullets fired" %>
+    </div>
   </section>
 </div>
