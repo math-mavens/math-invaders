@@ -1,7 +1,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 100px 0px;
+  height: 100vh;
+  padding: 60px 0px;
   background-color: $light;
 }
 
@@ -12,11 +13,13 @@
 
 }
 
-.banner h1 {
+.banner {
+  h1 {
   margin: 0;
   color: $dark;
   font-size: 60px;
   margin-bottom: 35px;
+  }
 }
 
 .banner p {
