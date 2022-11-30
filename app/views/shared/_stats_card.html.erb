@@ -4,7 +4,7 @@
       <div class="flip-card-front">
         <h1 class="mt-3">Problems Solved</h1>
         <span><i class="fas fa-brain fa-2xl mt-5" style="color:orange"></i></span>
-        <p class="mt-4">Your Best: <strong><%= @total_problems.max %></strong></p>
+        <p class="mt-4">Your Best: <strong><%= @total_problems.nil? ? 0 : @total_problems.max%></strong></p>
       </div>
       <div class="flip-card-back">
           <p class="mt-5 text-center"> Amazing! Keep going! </p>
@@ -17,7 +17,7 @@
       <div class="flip-card-front">
         <h1 class="mt-3">Time Taken</h1>
         <span><i class="fas fa-stopwatch fa-2xl mt-5" style="color:orange"></i></span>
-        <p class="mt-4">Your Best: <strong><%= @all_time.min/1000.0 %></strong> secs</p>
+        <p class="mt-4">Your Best: <strong><%= @all_time.nil? ? 0 : @all_time.min/1000.0 %></strong> secs</p>
       </div>
       <div class="flip-card-back">
         <p class="mt-5">Practice makes perfect!</p>
@@ -30,7 +30,7 @@
       <div class="flip-card-front">
         <h1 class="mt-3">High Score</h1>
         <span><i class="fa-solid fa-award fa-2xl mt-5" style="color:orange"></i></span>
-        <p class="mt-4">Your Best: <strong><%= @all_scores.max.to_i %></strong> pts</p>
+        <p class="mt-4">Your Best: <strong><%= @all_scores.nil? ? 0 : @all_scores.max.to_i %></strong> pts</p>
       </div>
       <div class="flip-card-back">
           <p class="mt-5">You are getting good at this!</p>
@@ -43,7 +43,7 @@
       <div class="flip-card-front">
         <h1 class="mt-3">Bullets Fired</h1>
         <span><i class="fa-solid fa-bullseye fa-2xl mt-5" style="color:orange"></i></span>
-        <p class="mt-4">Most: <strong><%= @all_bullets.max %></strong> shots</p>
+        <p class="mt-4">Most: <strong><%= @all_bullets.nil? ? 0 : @all_bullets.max %></strong> shots</p>
       </div>
       <div class="flip-card-back">
           <p class="mt-5">Shoot less aim more!</p>
