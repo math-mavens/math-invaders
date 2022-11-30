@@ -34,8 +34,4 @@
         </div>
     </section>
   </div>
-         <div style="margin-top:50px;">
-          <h3 style="font-size: 30px;" class="text-center">Attempts per day</h3>
-          <%= area_chart Attempt.group_by_day(:created_at).count, colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total attempts", empty: "No data"  %>
-        </div>
 </div>
