@@ -21,7 +21,7 @@
             <tbody class="rows-color table-attempts">
             <% @attempts.each do |attempt| %>
             <tr>
-              <td><%= attempt.level.name %></td>
+              <td><%= attempt.level.name.capitalize %></td>
               <td><%= attempt.id.nil? ? 0 : attempt.id %></td>
               <td><%= attempt.total_time.nil? ? 0 : attempt.total_time/1000.0 %> secs</td>
               <td><%= attempt.problems_solved.nil? ? 0 : attempt.problems_solved %></td>
