@@ -91,3 +91,8 @@ th {
   font-size: 20px;
   border-radius: 4px;
 }
+
+
+.table-attempts > tr {
+  overflow: hidden !important;
+}
