@@ -15,6 +15,8 @@
     <link rel="shortcut icon" type="image/png"
       href="https://raw.githubusercontent.com/math-mavens/math-invaders/master/app/assets/images/logo.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
@@ -28,5 +30,38 @@
     <%= yield %>
       <%= render "shared/footer" %>
 
+    <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          // console.log(entry);
+          const animElement = entry.target.querySelector('.anim-element');
+          const animType = animElement.dataset.animType;
+          const animRepeat = animElement.dataset.animReps;
+
+          // console.log('type ' + animType);
+
+          if (entry.isIntersecting) {
+            // console.log("adding...");
+            // console.log(animElement);
+            animElement.classList.add('animate__animated', animType,
+                                      animRepeat);
+            return; // if we added the class, exit the function
+          }
+
+          // We're not intersecting, so remove the class!
+          // console.log("removing...");
+          animElement.classList.remove('animate__animated', animType,
+                                      animRepeat);
+        });
+      });
+
+      const allAnimWrappers = document.querySelectorAll('.anim-wrapper');
+      console.log(allAnimWrappers);
+      allAnimWrappers.forEach(wrapper => {
+        observer.observe(wrapper);
+      });
+
+
+    </script>
   </body>
 </html>
