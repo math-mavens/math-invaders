@@ -13,19 +13,19 @@
       </div> -->
       <div>
         <h3 style="font-size: 24px;" class="text-center my-4">Attempts per day</h3>
-        <%= column_chart Attempt.group_by_hour(:updated_at, format: "%a %l%p", range: 2.days.ago.midnight..Time.now).count, points: false, label: "Value", colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total attempts", empty: "No data"  %>
+        <%= column_chart Attempt.group_by_hour(:updated_at, time_zone: "Hong Kong", format: "%a %l%p", range: 2.days.ago.midnight..Time.now).count, points: false, label: "Value", colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total attempts", empty: "No data"  %>
       </div>
       <div>
         <h3 style="font-size: 24px;" class="text-center my-4">Total score per day</h3>
-        <%= area_chart Attempt.group_by_hour(:updated_at, format: "%a %l%p", range: 2.days.ago.midnight..Time.now).sum(:score), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total score" %>
+        <%= area_chart Attempt.group_by_hour(:updated_at, time_zone: "Hong Kong", format: "%a %l%p", range: 2.days.ago.midnight..Time.now).sum(:score), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total score" %>
       </div>
       <div>
         <h3 style="font-size: 24px;" class="text-center my-4">Best time per day</h3>
-        <%= column_chart Attempt.group_by_hour(:updated_at, format: "%a %l%p", range: 2.days.ago.midnight..Time.now).minimum(:total_time), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Time taken" %>
+        <%= column_chart Attempt.group_by_hour(:updated_at, time_zone: "Hong Kong", format: "%a %l%p", range: 2.days.ago.midnight..Time.now).minimum(:total_time), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Time taken" %>
       </div>
       <div>
         <h3 style="font-size: 24px;" class="text-center my-4">Bullets fired per day</h3>
-        <%= area_chart Attempt.group_by_hour(:updated_at, format: "%a %l%p", range: 2.days.ago.midnight..Time.now).sum(:bullets_fired), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total bullets fired" %>
+        <%= area_chart Attempt.group_by_hour(:updated_at, time_zone: "Hong Kong", format: "%a %l%p", range: 2.days.ago.midnight..Time.now).sum(:bullets_fired), colors: ["#F06D4F", "#F06D4F"], xtitle: "Day", ytitle: "Total bullets fired" %>
       </div>
     </div>
 </div>
