@@ -37,6 +37,8 @@ ARG BUNDLE_PATH=vendor/bundle
 ENV BUNDLE_PATH ${BUNDLE_PATH}
 ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
 
+#ENV YARN_IGNORE_NODE=1
+
 RUN mkdir /app
 WORKDIR /app
 RUN mkdir -p tmp/pids
@@ -49,7 +51,7 @@ ENV BASH_ENV ~/.bashrc
 ENV VOLTA_HOME /root/.volta
 ENV PATH $VOLTA_HOME/bin:/usr/local/bin:$PATH
 
-RUN volta install node@16.15.1 && volta install yarn
+RUN volta install node@16.15.1 && volta install yarn@3
 
 RUN gem update --system --no-document && \
     gem install -N bundler -v ${BUNDLER_VERSION}
