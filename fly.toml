@@ -15,6 +15,11 @@ processes = []
 
 [env]
   PORT = "8080"
+  DATABASE_URL= "sqlite3:///mnt/data/production.sqlite"
+
+[mounts]
+  source="data"
+  destination="/mnt/data"
 
 [experimental]
   allowed_public_ports = []

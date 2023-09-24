@@ -11,12 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_24_075027) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "attempts", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "level_id", null: false
+    t.integer "user_id", null: false
+    t.integer "level_id", null: false
     t.integer "total_time"
     t.integer "problems_solved"
     t.decimal "score"
@@ -41,14 +38,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_075027) do
     t.integer "problems_solved"
     t.integer "score"
     t.integer "attempts"
-    t.bigint "user_id"
-    t.bigint "level_id"
+    t.integer "user_id"
+    t.integer "level_id"
     t.index ["level_id"], name: "index_levelleaderboards_on_level_id"
     t.index ["user_id"], name: "index_levelleaderboards_on_user_id"
   end
 
   create_table "levels", force: :cascade do |t|
-    t.bigint "category_id", null: false
+    t.integer "category_id", null: false
     t.integer "total_problems"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

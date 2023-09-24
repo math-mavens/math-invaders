@@ -39,3 +39,6 @@
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+
+# Ignore Sqlite db files
+/db/*.sqlite3
